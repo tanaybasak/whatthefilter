@@ -1,0 +1,50 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:jest/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "testing-library",
+    "jest",
+    "jest-dom"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "no-shadow": "warn",
+    "@typescript-eslint/no-empty-function": "off",
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          ["^\\u0000"], // Side effect imports
+          ["^react$"], // React
+          ["^@?\\w"], // External imports
+          ["^src/.*"], // Absolute imports
+          ["^\\."] // Relative imports
+        ]
+      }
+    ]
+  }
+}
